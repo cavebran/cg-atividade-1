@@ -1,17 +1,15 @@
 #ifndef PIXEL_HPP
 #define PIXEL_HPP
 
-#include "Color.hpp"
 #include <string>
-
 
 class Pixel {
 public:
-  unsigned int x; // position x
-	unsigned int y; // position y
-	Color color; // pixel color
+  int r; // red
+	int g; // green
+	int b; // blue
 
-  Pixel(unsigned int posX, unsigned int posY, Color pixelColor);
+  Pixel(int red = 0, int green = 0, int blue = 0);
 
 	std::string print();
 };

@@ -2,25 +2,34 @@
 #include <iostream>
 
 Image::Image(int w, int h) : width(w), height(h) {
-  canvas.resize(height, std::vector<Pixel>(width, NULL));
-  
-  for (unsigned int i = 0; i < height; i++) {
-    for (unsigned int j = 0; j < width; j++) {
-      canvas[i][j] = Pixel(i, j, Color());
-    }
-  }
+    canvas.resize(height, std::vector<Pixel>(width, Pixel(100, 100, 100)));
 }
 
-void Image::setPixel(Pixel pixel) {
-  canvas[pixel.x][pixel.y] = pixel;
+void Image::setPixel(int x, int y, Pixel pixel) {
+	if((x < 0 || x >= height) || (y < 0 || y > width)) {
+		throw "Error on set pixel position";
+	}
+
+  canvas[x][y] = pixel;
 }
+
+// void Image::saveToPPM() {
+//     std::cout << "P3\n" << width << ' ' << height << "\n255\n";
+
+//     for (int i = 0; i < height; i++) {
+//         for (int j = 0; j < width; i++) {
+//             std::cout << canvas[j][i].print() << '\n';
+//         }
+//     }
+// }
 
 void Image::saveToPPM() {
-    std::cout << "P3\n" << width << ' ' << height << "\n255\n";
+    std::cout << "P3\n"
+              << width << ' ' << height << "\n255\n";
 
-    for (int i = 0; i < height; i++) {
-        for (int j = 0; j < width; i++) {
-            std::cout << canvas[i][j].print() << '\n';
-        }
+    for (int j = 0; j < height; ++j) {
+        for (int i = 0; i < width; ++i) {
+					std::cout << canvas[j][i].print() << '\n';        
+				}
     }
 }

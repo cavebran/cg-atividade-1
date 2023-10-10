@@ -12,7 +12,7 @@ public:
 
   Image(int w, int h);
 
-  void setPixel(Pixel pixel);
+  void setPixel(int x, int y, Pixel pixel);
   void saveToPPM();
 };
 
