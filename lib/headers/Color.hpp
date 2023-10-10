@@ -7,7 +7,7 @@ public:
 	unsigned int g; // green
 	unsigned int b; // blue
 
-  Color(int r, int g, int b);
+	Color(unsigned int red = 0, unsigned int green = 0, unsigned int blue = 0);
 };
 
 #endif
