@@ -13,16 +13,6 @@ void Image::setPixel(int x, int y, Pixel pixel) {
   canvas[x][y] = pixel;
 }
 
-// void Image::saveToPPM() {
-//     std::cout << "P3\n" << width << ' ' << height << "\n255\n";
-
-//     for (int i = 0; i < height; i++) {
-//         for (int j = 0; j < width; i++) {
-//             std::cout << canvas[j][i].print() << '\n';
-//         }
-//     }
-// }
-
 void Image::saveToPPM() {
     std::cout << "P3\n"
               << width << ' ' << height << "\n255\n";
